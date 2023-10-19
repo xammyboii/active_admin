@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'horses/index'
-  get 'horses/show'
-  get 'breeds/index'
-  get 'breeds/show'
+  resources :breeds, only: %i[index show]
+  resources :horses, only: :show do
+    collection do
+      get :search
+    end
+  end
+
+  root to: 'breeds#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
