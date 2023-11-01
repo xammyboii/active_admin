@@ -1,3 +1,7 @@
+Horse.destroy_all
+Breed.destroy_all
+AdminUser.destroy_all
+
 NUMBER_OF_BREEDS = 4
 HORSES_PER_BREED = 4
 
@@ -11,9 +15,17 @@ NUMBER_OF_BREEDS.times do
       top_speed: 3.1415926 * rand(20..56),
       number_of_legs: rand(1..14)
     )
+    # image trickery begins here
+    query = URI.encode_www_form_component([horse.name + "horse", breed.name + 'horse'].join(","))
+    download_image = URI.open("https://source.unsplash.com/600x600/?#{query}")
+    horse.image.attach(io: download_image, filename: "m-#{[horse.name,breed.name].join('-')}.jpg")
+    sleep(1)
   end
 end
 
 puts "Created #{Breed.count} Breeds."
 puts "Created #{Horse.count} Horses."
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password',
+                    password_confirmation: 'password')
+end
