@@ -5,7 +5,7 @@ ActiveAdmin.register Horse do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :age, :top_speed, :number_of_legs, :breed_id
+  permit_params :name, :age, :top_speed, :number_of_legs, :breed_id, :image
   #
   # or
   #
@@ -20,7 +20,7 @@ ActiveAdmin.register Horse do
     f.semantic_errors
     f.inputs
     f.inputs do
-      f.input :image, as: :file
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image) : ""
     end
     f.actions
   end
