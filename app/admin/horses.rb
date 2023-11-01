@@ -15,4 +15,14 @@ ActiveAdmin.register Horse do
   #   permitted
   # end
 
+  # from https://github.com/formtastic/formtastic
+  form do |f|
+    f.semantic_errors
+    f.inputs
+    f.inputs do
+      f.input :image, as: :file
+    end
+    f.actions
+  end
+
 end
