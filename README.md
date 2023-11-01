@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Repo originally cloned from https://github.com/Mbialowas10/ActiveAdminDemo.git for ActiveAdminDemo (lecture demo started 2023-10-31).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<strong>SeedData</strong> was the starting branch, which I renamed and used as my <strong>main</strong> branch as the start of this repo.
